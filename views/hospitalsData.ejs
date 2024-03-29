@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles5.css">
+    <title>Search Here</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="Error">
+                </a>
+            </div>
+            <div class="header-search">
+                <form action="/search-location" method="post">
+                    <div class="search-container">
+                        <input type="text" name="location" placeholder="Location" required>
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <form action="/search-resources" method="post">
+                    <div class="search-container">
+                        <input type="text" name="resource" placeholder="Resource" required>
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="login-btn">
+                <% if (locals.user) {%>
+                <div class="login-div">
+                    <a href="/users/profile"><%= user.name %></a> /
+                    <a href="/users/sign-out">Sign Out</a>
+                </div>
+                <%}else{%>
+                <div class="login-div">
+                    <a href="/users/sign-in">Sign-in</a> /
+                    <a href="/users/sign-up">Sign-up</a>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Top hospitals in location</h2>
+        <div class="search-operations">
+            <div class="sort-box">
+                <select class="sort-by">
+                    <option value="" disabled selected hidden>Sort by</option>
+                    <option value="rate">Rating</option>
+                    <option value="distance">Distance</option>
+                    <option value="popularity">Popular</option>
+                </select>
+            </div>
+            <div class="top-rated">
+                <div class="rated-div"><i class="fa fa-star"></i>Top rated</div>
+            </div>
+            <div class="rating">
+                <select class="select_2" >
+                    <option value="" disabled selected hidden>Rating</option>
+                    <option class="option" name="rate">3</option>
+                    <option class="option" name="distance">3.5</option>
+                    <option class="option" name="popularity">4</option>
+                    <option class="option" name="popularity">4.5</option>
+                    <option class="option" name="popularity">5</option>
+                    <option class="option" name="popularity">Any</option>
+                </select>
+            </div>
+        </div>
+        <% if (Hospitals.length > 0) { %>
+        <% Hospitals.forEach(function(hospitals) { %>
+        <div class="main-container">
+            <div class="hospital-image">
+                <img src="/images/hospital-image.avif" alt="Error">
+            </div>
+            <div class="hospital-details">
+                <a href="/gethospitals-details/?id=<%= hospitals._id %>"><h2 id="hospital-name"><%= hospitals.hospitalName %></h2></a>
+                <div class="star-rating">
+                    <span class="rating-num"><%= hospitals.rating %></span>
+                    <i style="font-size: 35px;" data-star="<%= hospitals.rating %>"></i>                             
+                </div>
+                <div class="hospital-address"><i class="fa fa-location-dot"></i> <span> <%= hospitals.address %></span>
+                </div>
+                <ul>
+                <% hospitals.resource.forEach(function(resource) { %>
+                    <div>
+                            <li class="resources"><%= resource%></li>
+                        </div>
+                        <% }) %>
+                    </ul>
+                <br>
+                <p class="mobile"><i class="fa fa-phone"></i><%= hospitals.mobile %></p>
+            </div>
+        </div>
+        <% }) %>
+        <% } else { %>
+            <div class="no-data-found">
+                <p>No hospitals found for the given resource.</p>
+            </div>
+        <% } %>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+</html>

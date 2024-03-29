@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign-up</title>
+    
+
+
+</head>
+
+<!-- <link rel="stylesheet" href="/css/styles3.css"> -->
+
+<body style="padding:100px;">
+
+    <div>
+
+        <div class="head">
+
+            <h1>Signup</h1>
+            
+
+        <form action='/users/create-user' method='post'>
+
+            <label>Email:</label>
+
+            <input type="email" name="email" required><br>
+
+            <label>Password:</label>
+            <input type="password" name="password" required><br>
+            <label>Confirm Password:</label>
+            <input type="password" name="confirm_password" required><br>
+
+            <label for="name">Name: </label>
+            <input type="text" name="name" required>
+
+            <label class="label">Gender:
+                <table class="table">
+                    <tr>
+                        <td><input type="radio" name="gender" value="female" required>
+                            <label class="label_1">FEMALE</label>
+                        </td>
+                        <td><input class="male-class" type="radio" name="gender" value="male" required>
+                            <label class="label_1">MALE</label>
+                        </td>
+                    </tr>
+                </table>
+            </label>
+            <label class="label">Blood Group:
+            <input type="text" name="bloodgroup" value="" required>
+            </label>
+            <br>
+            <label class="label">Height:
+            <input type="number" name="height" value="" required>
+            </label>
+            <br>
+            <label class="label">Weight:
+            <input type="number" name="weight" value="" required>
+            </label>
+            <br>
+
+            <label for="age" class="label">Age: 
+                <input type="number" name="age" id="" required>
+            </label>
+            <br>
+            <label for="guardian">Guardian: 
+                <input type="text" name="guardian" id="" required>
+            </label>
+            <br>
+
+            <label class="label">Phone No:
+            <input type="number" name="mobile" value="" required>
+            </label>
+            <br>
+            <label for="dob">DOB:
+                <input type="date" name="dob" id="" required>
+            </label>
+            <label class="label">Address:
+            <textarea class="address" name="residence" rows="5" cols="20" required></textarea>
+            </label>
+
+            <button class="first" type="submit"> next</button>
+
+        </form>
+        <a href="/users/sign-in">sign-in</a>
+
+
+
+    </div>
+
+    </div>
+
+</body>
+
+</html>

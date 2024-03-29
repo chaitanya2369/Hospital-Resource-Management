@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %></title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="header">
+        <h1 id="heading">Patient's Information</h1>
+        <a href="/users/sign-out" id="signoutbtn">SignOut</a>
+    </div>
+    
+    <div class="container">
+        <div class="general-info">
+            <h2>Name: <%= user.name %></h2><hr>
+            <h2>Email Id: <%= user.email %></h2><hr>
+            <h2>Gender: <%= user.gender%> </h2><hr>
+            <h2>Age: <%= user.age %></h2><hr>
+            <h2>Height: <%= user.height %></h2><hr>
+            <h2>Weight: <%= user.weight %></h2><hr>
+            <h2>Guardian: <%= user.guardian %></h2><hr>
+            <h2>Residence: <%= user.residence %></h2><hr>
+            <h2>D-O-B: <%= user.dob.toLocaleDateString() %></h2><hr>
+            <h2>Blood Group: <%= user.bloodgroup %></h2><hr>
+            <h2>BMI: 19.0</h2>
+        </div>
+        <div class="img-div">
+            <img src="/images/img.jpg" alt="Error loading in image">
+            <h2>Name: <%= user.name %></h2>
+            <h2>Mobile: 7895128261</h2>
+        </div>
+    </div>
+</body>
+</html>

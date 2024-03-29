@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="hospitalForm" method="post" action="/users/create-hospitals">
+        <input type="text" name="hospitalName" required>
+        <input type="text" name="mobile" required>
+        <textarea name="address" id="" cols="30" rows="10" required></textarea>
+        <input type="number" name="rating" required>
+        <input type="text" name="resources" id="resourcesInput" required>
+        <input type="text" name="location" required>
+        <button type="button" onclick="addHospital()">Add</button>
+    </form>
+
+    <script>
+        function addHospital() {
+            // Get the resources input value
+            var resourcesInput = document.getElementById("resourcesInput").value;
+    
+            // Split the comma-separated values into an array
+            var resourcesArray = resourcesInput.split(",");
+            
+            // Log the array to the console for debugging
+            console.log(resourcesArray);
+    
+            // Set the value of the hidden input with the array
+            document.getElementById("resourcesInput").value = resourcesArray;
+    
+            // Submit the form
+            document.getElementById("hospitalForm").submit();
+        }
+    </script>
+    
+</body>
+</html>
